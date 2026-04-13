@@ -67,7 +67,19 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
     }),
   });
 
-  return response.ok ? "sent" : `failed (${response.status})`;
+  if (response.ok) {
+    return "sent";
+  }
+
+  const errorBody = await response.text().catch(() => "");
+  console.error("Resend email delivery failed.", {
+    status: response.status,
+    body: errorBody,
+    from,
+    to,
+  });
+
+  return `failed (${response.status})`;
 }
 
 async function sendWhatsapp(
@@ -113,5 +125,17 @@ async function sendWhatsapp(
     },
   );
 
-  return response.ok ? "sent" : `failed (${response.status})`;
+  if (response.ok) {
+    return "sent";
+  }
+
+  const errorBody = await response.text().catch(() => "");
+  console.error("Twilio WhatsApp delivery failed.", {
+    status: response.status,
+    body: errorBody,
+    from,
+    to,
+  });
+
+  return `failed (${response.status})`;
 }
