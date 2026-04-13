@@ -1,0 +1,306 @@
+{
+  "cars": [
+    {
+      "id": "780a83bd-73a0-4d14-9ae0-6ed3a6b16dfe",
+      "slug": "adfvada",
+      "createdAt": "2026-04-13T10:30:16.861Z",
+      "portfolioType": "available",
+      "name": "esfvsdv",
+      "priceRange": "120000 zł",
+      "year": "2024",
+      "mileage": "5000 km",
+      "summaryPl": "Krótki opis - widoczny na stronie głównej",
+      "summaryEn": "Krótki opis - widoczny na stronie głównej",
+      "descriptionPl": "Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta",
+      "descriptionEn": "Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta Opis - po wejściu w profil auta",
+      "highlightsPl": [],
+      "highlightsEn": [],
+      "battery": "120 kWh",
+      "range": "300 km CLTC",
+      "body": "asvSV",
+      "images": [
+        "/uploads/1776076216856-90cf7d79-ba80-4be8-a574-83f62e098cdf.webp",
+        "/uploads/1776077215534-cf034d38-d457-4806-a911-f7001f041fda.jpg"
+      ],
+      "image": "/uploads/1776076216856-90cf7d79-ba80-4be8-a574-83f62e098cdf.webp"
+    },
+    {
+      "id": "47a28d11-f31a-4242-b3aa-8b117cc60669",
+      "slug": "penpongpang",
+      "createdAt": "2026-04-10T10:29:34.019Z",
+      "portfolioType": "available",
+      "name": "PenPongPang",
+      "priceRange": "169 900 zł",
+      "year": "2025",
+      "summaryPl": "Niedlugo bedzie dostepny",
+      "summaryEn": "Niedlugo bedzie dostepny",
+      "descriptionPl": "Niedlugo bedzie dostepny",
+      "descriptionEn": "Niedlugo bedzie dostepny",
+      "highlightsPl": [],
+      "highlightsEn": [],
+      "battery": "75 kWh",
+      "range": "500 km",
+      "body": "Coupe",
+      "images": [
+        "/uploads/1775830052569-93b8ef53-fe40-43b8-a86e-2b0857b24a47.jpg"
+      ],
+      "image": "/uploads/1775830052569-93b8ef53-fe40-43b8-a86e-2b0857b24a47.jpg",
+      "mileage": ""
+    },
+    {
+      "id": "seed-1",
+      "createdAt": "2026-04-09T10:00:00.000Z",
+      "slug": "byd-dolphin",
+      "portfolioType": "example",
+      "name": "BYD Dolphin",
+      "image": "https://media.byd.com/wp-content/uploads/2025/10/03f0a618bddb35f7a6852187df54f1ce-l.jpg.webp?t=1775404293",
+      "priceRange": "99 000 - 119 000 zł",
+      "year": "2022 - 2024",
+      "summaryPl": "Miejski hatchback elektryczny z nowoczesnym wnętrzem i atrakcyjną ceną na rynku wtórnym.",
+      "summaryEn": "A compact electric hatchback with a modern interior and attractive used-market pricing.",
+      "descriptionPl": "BYD Dolphin to jeden z najpopularniejszych chińskich samochodów elektrycznych w segmencie kompaktowym. Dobrze sprawdza się w mieście i w codziennym użytkowaniu, a dzięki dużej popularności łatwiej znaleźć ciekawe egzemplarze pod indywidualne zamówienie.",
+      "descriptionEn": "BYD Dolphin is one of the most popular Chinese EVs in the compact segment. It works well in the city and for daily use, and its popularity makes it easier to source interesting examples on demand.",
+      "highlightsPl": [
+        "Dobry balans między ceną, zasięgiem i wyposażeniem",
+        "Popularny model, łatwiejszy do znalezienia w Chinach",
+        "Świetna opcja do miasta i codziennych dojazdów"
+      ],
+      "highlightsEn": [
+        "Good balance of price, range, and equipment",
+        "Popular model, easier to source in China",
+        "Great option for city driving and daily commutes"
+      ],
+      "battery": "45 - 60 kWh",
+      "range": "340 - 427 km CLTC",
+      "body": "Hatchback",
+      "images": [
+        "https://media.byd.com/wp-content/uploads/2025/10/03f0a618bddb35f7a6852187df54f1ce-l.jpg.webp?t=1775404293"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-2",
+      "createdAt": "2026-04-09T10:01:00.000Z",
+      "slug": "byd-atto-3",
+      "portfolioType": "example",
+      "name": "BYD Atto 3",
+      "image": "https://media.byd.com/wp-content/uploads/2026/02/4110aa30b14b1a8a87ab3bcbed596dd6-l.jpg.webp?t=1775770478",
+      "priceRange": "118 000 - 149 000 zł",
+      "year": "2023",
+      "summaryPl": "Popularny elektryczny SUV z wygodnym wnętrzem i rozsądnym zasięgiem.",
+      "summaryEn": "A popular electric SUV with a comfortable interior and practical range.",
+      "descriptionPl": "BYD Atto 3 to SUV dla osób szukających większego auta do codziennego użytkowania. Na rynku chińskim można znaleźć wiele egzemplarzy z ciekawymi konfiguracjami i bogatym wyposażeniem, dlatego to częsty wybór przy imporcie na zamówienie.",
+      "descriptionEn": "BYD Atto 3 is an SUV for buyers looking for a larger EV for everyday use. The Chinese market offers many interesting configurations with rich equipment, making it a frequent on-demand import choice.",
+      "highlightsPl": [
+        "Wygodny SUV do miasta i trasy",
+        "Dobre wyposażenie już w bazowych wersjach",
+        "Często poszukiwany model na rynku wtórnym"
+      ],
+      "highlightsEn": [
+        "Comfortable SUV for city and highway use",
+        "Good equipment even in lower trims",
+        "Frequently sought-after on the used market"
+      ],
+      "battery": "49 - 60 kWh",
+      "range": "410 - 480 km CLTC",
+      "body": "SUV",
+      "images": [
+        "https://media.byd.com/wp-content/uploads/2026/02/4110aa30b14b1a8a87ab3bcbed596dd6-l.jpg.webp?t=1775770478"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-3",
+      "createdAt": "2026-04-09T10:02:00.000Z",
+      "slug": "mg4-electric",
+      "portfolioType": "example",
+      "name": "MG4 Electric",
+      "image": "https://news.mgmotor.eu/wp-content/uploads/2026/02/Front-Left-45.jpg",
+      "priceRange": "92 000 - 128 000 zł",
+      "year": "2023 - 2025",
+      "summaryPl": "Dynamiczny kompakt ceniony za prowadzenie i bardzo konkurencyjną wycenę.",
+      "summaryEn": "A dynamic compact EV appreciated for its handling and competitive pricing.",
+      "descriptionPl": "MG4 Electric to model dla klientów szukających bardziej sportowego charakteru w przystępnej cenie. Egzemplarze z Chin mogą być bardzo ciekawą bazą do sprowadzenia na indywidualne zamówienie, szczególnie przy określonym budżecie.",
+      "descriptionEn": "MG4 Electric suits buyers looking for a more engaging character at an accessible price. Chinese-market examples can be a very interesting base for an on-demand import, especially within a set budget.",
+      "highlightsPl": [
+        "Nowoczesna stylistyka i dobre prowadzenie",
+        "Atrakcyjny stosunek ceny do możliwości",
+        "Popularny wybór w segmencie kompaktowych EV"
+      ],
+      "highlightsEn": [
+        "Modern styling and good handling",
+        "Strong value for money",
+        "Popular choice in the compact EV segment"
+      ],
+      "battery": "51 - 64 kWh",
+      "range": "350 - 520 km CLTC",
+      "body": "Hatchback",
+      "images": [
+        "https://news.mgmotor.eu/wp-content/uploads/2026/02/Front-Left-45.jpg"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-4",
+      "createdAt": "2026-04-09T10:03:00.000Z",
+      "slug": "xpeng-g6",
+      "portfolioType": "example",
+      "name": "XPeng G6",
+      "image": "https://s-cdn.xpeng.com/commoncms/prod/2025-07-08/23fa362849db4e7f931a4e228c327900.jpg?x-oss-process=image%2Fresize%2Cw_1920%2Fquality%2Cq_80%2Finterlace%2C1",
+      "priceRange": "149 000 - 189 000 zł",
+      "year": "2023 - 2025",
+      "summaryPl": "Nowoczesny crossover coupe dla klientów szukających bardziej efektownego EV z Chin.",
+      "summaryEn": "A modern coupe-style crossover for buyers looking for a more distinctive Chinese EV.",
+      "descriptionPl": "XPeng G6 to propozycja dla osób, które chcą nowoczesnego crossovera z bardziej wyrazistą stylistyką i mocniejszym naciskiem na technologię. To model, który zwykle wymaga indywidualnego wyszukania i porównania konfiguracji w Chinach.",
+      "descriptionEn": "XPeng G6 is aimed at buyers who want a modern crossover with bolder styling and a stronger focus on technology. It usually requires individual sourcing and configuration comparison in China.",
+      "highlightsPl": [
+        "Nowoczesny design i sylwetka coupe",
+        "Ciekawa alternatywa dla popularnych SUV-ów EV",
+        "Model zwykle wyszukiwany indywidualnie"
+      ],
+      "highlightsEn": [
+        "Modern design with a coupe-like profile",
+        "Interesting alternative to mainstream electric SUVs",
+        "Usually sourced individually on request"
+      ],
+      "battery": "66 - 87.5 kWh",
+      "range": "580 - 755 km CLTC",
+      "body": "Crossover Coupe",
+      "images": [
+        "https://s-cdn.xpeng.com/commoncms/prod/2025-07-08/23fa362849db4e7f931a4e228c327900.jpg?x-oss-process=image%2Fresize%2Cw_1920%2Fquality%2Cq_80%2Finterlace%2C1"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-4b",
+      "createdAt": "2026-04-09T10:03:30.000Z",
+      "slug": "zeekr-001",
+      "portfolioType": "example",
+      "name": "Zeekr 001",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zeekr%20001%202025.jpg",
+      "priceRange": "168 000 - 229 000 zł",
+      "year": "2022 - 2025",
+      "summaryPl": "Duży liftback klasy premium dla klientów szukających mocniejszego i bardziej prestiżowego EV z Chin.",
+      "summaryEn": "A large premium liftback for buyers looking for a stronger and more prestigious EV from China.",
+      "descriptionPl": "Zeekr 001 to bardziej premium propozycja dla osób, które chcą połączyć osiągi, nowoczesne technologie i większy komfort podróży. Na rynku chińskim występuje w wielu konfiguracjach, dlatego dobrze nadaje się do indywidualnego wyszukania pod konkretne oczekiwania.",
+      "descriptionEn": "Zeekr 001 is a more premium proposition for buyers who want to combine performance, modern technology, and greater comfort. The Chinese market offers many configurations, making it well suited to individual sourcing based on specific expectations.",
+      "highlightsPl": [
+        "Bardziej premium charakter i mocniejsze osiągi",
+        "Duży liftback z nowoczesnym wnętrzem",
+        "Ciekawa alternatywa dla europejskich modeli klasy wyższej"
+      ],
+      "highlightsEn": [
+        "More premium character and stronger performance",
+        "Large liftback with a modern interior",
+        "Interesting alternative to higher-segment European models"
+      ],
+      "battery": "86 - 100 kWh",
+      "range": "546 - 750 km CLTC",
+      "body": "Liftback",
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Zeekr%20001%202025.jpg"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-5",
+      "createdAt": "2026-04-09T10:04:00.000Z",
+      "slug": "nio-et5",
+      "portfolioType": "available",
+      "name": "NIO ET5",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/NIO%20ET5.jpg",
+      "priceRange": "169 900 zł",
+      "year": "2024",
+      "summaryPl": "Elegancki elektryczny fastback już sprowadzony i przygotowany do sprzedaży.",
+      "summaryEn": "An elegant electric fastback already imported and prepared for sale.",
+      "descriptionPl": "NIO ET5 w tej sekcji pokazuje, jak będzie wyglądała oferta aut już sprowadzonych i dostępnych do zakupu. To bardziej bezpośrednia sprzedaż niż przykładowe portfolio importowe.",
+      "descriptionEn": "NIO ET5 in this section shows how the listing will look for cars already imported and available for purchase. It represents direct sale stock rather than the example import portfolio.",
+      "highlightsPl": [
+        "Auto już sprowadzone do Polski",
+        "Forma oferty bliższa klasycznej sprzedaży",
+        "Pełniejsze dane dostępne po kontakcie"
+      ],
+      "highlightsEn": [
+        "Vehicle already imported to Poland",
+        "Offer closer to a traditional in-stock sale",
+        "More complete data available after contact"
+      ],
+      "battery": "75 kWh",
+      "range": "560 km CLTC",
+      "body": "Fastback",
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NIO%20ET5.jpg",
+        "/uploads/1775757304288-3ab7f2a3-613a-4b5a-9ea1-78d6b4b07c90.jpg"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-6",
+      "createdAt": "2026-04-09T10:05:00.000Z",
+      "slug": "li-auto-l7",
+      "portfolioType": "available",
+      "name": "Li Auto L7",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Li%20Auto%20L7%202024%20facelift%20001.jpg",
+      "priceRange": "219 900 zł",
+      "year": "2024",
+      "summaryPl": "Duży rodzinny SUV dostępny już w ofercie sprzedażowej z poglądową ceną.",
+      "summaryEn": "A large family SUV already shown in the current sale portfolio with an indicative price.",
+      "descriptionPl": "Li Auto L7 w sekcji aut dostępnych pokazuje, jak można prezentować większe modele już sprowadzone i gotowe do dalszych rozmów handlowych. Cena jest poglądowa, żeby pokazać docelowy wygląd portfolio.",
+      "descriptionEn": "Li Auto L7 in the available stock section shows how larger imported models can be presented once they are already in hand and ready for commercial discussions. The price is illustrative to show the intended portfolio layout.",
+      "highlightsPl": [
+        "Duży SUV dla rodziny lub biznesu",
+        "Samochód już w portfolio sprzedażowym",
+        "Dobra baza pod szczegółową rozmowę handlową"
+      ],
+      "highlightsEn": [
+        "Large SUV for family or business use",
+        "Already placed in the current sales portfolio",
+        "Good base for a detailed commercial conversation"
+      ],
+      "battery": "42.8 kWh + range extender",
+      "range": "210 km EV / 1315 km CLTC",
+      "body": "SUV",
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Li%20Auto%20L7%202024%20facelift%20001.jpg"
+      ],
+      "mileage": ""
+    },
+    {
+      "id": "seed-7",
+      "createdAt": "2026-04-09T10:06:00.000Z",
+      "slug": "xpeng-g6-available",
+      "portfolioType": "available",
+      "name": "XPeng G6",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Xpeng%20G6%20(88584).jpg",
+      "priceRange": "187 900 zł",
+      "year": "2025",
+      "summaryPl": "Nowoczesny crossover coupe pokazany jako auto już dostępne do sprzedaży.",
+      "summaryEn": "A modern coupe-style crossover shown as a vehicle currently available for sale.",
+      "descriptionPl": "Ta karta pokazuje, jak może wyglądać sekcja aut już dostępnych na sprzedaż po sprowadzeniu do Polski. XPeng G6 jest tutaj przykładem modelu z bardziej nowoczesnym charakterem i wyższą półką cenową.",
+      "descriptionEn": "This card shows how the currently available sale section can look once a car has already been imported to Poland. XPeng G6 is used here as an example of a more modern, higher-priced model.",
+      "highlightsPl": [
+        "Crossover coupe z nowoczesną stylistyką",
+        "Już pokazany w sekcji aut dostępnych",
+        "Poglądowa cena dla gotowej oferty sprzedażowej"
+      ],
+      "highlightsEn": [
+        "Coupe-style crossover with modern styling",
+        "Already displayed in the currently available section",
+        "Illustrative price for a ready-for-sale listing"
+      ],
+      "battery": "87.5 kWh",
+      "range": "755 km CLTC",
+      "body": "Crossover Coupe",
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2024%20Xpeng%20G6%20(88584).jpg"
+      ],
+      "mileage": ""
+    }
+  ],
+  "inquiries": [],
+  "settings": {
+    "publicEmail": "huszcza.maciej@gmail.com",
+    "publicPhone": "+48 500 000 000",
+    "publicWhatsapp": "+48 530 188 10"
+  }
+}

@@ -1,0 +1,23 @@
+-- domena i email:
+
+https://manager.eu.ovhcloud.com/
+login:handel.polaris@gmail.com
+haslo:hpolaris231$
+
+-- girhub (repository)
+
+https://github.com/dashboard
+login:autojutra
+haslo:hpolaris231$
+
+-- hosting
+
+https://vercel.com/
+login: za pomoca GitHub
+
+-- strona admin logowanie
+
+login: handel.polaris
+haslo: hpolaris231$
+
+

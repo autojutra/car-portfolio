@@ -1,0 +1,32 @@
+
+1. Zainstaluj:
+Git
+VS Code (opcjonalnie)
+
+w GIT Bash:
+
+# tylko pierwszy raz
+git clone https://github.com/autojutra/car-portfolio.git
+cd car-portfolio
+npm install
+
+# przy każdej kolejnej pracy
+git pull
+npm run dev
+
+# po skończeniu zmian
+git add .
+git commit -m "opis zmiany"
+git push
+
+2. uruchomic 'http://localhost:3000/?lang=pl'
+ 
+PowerShell
+
+cd C:\Users\huszc\Desktop\car-portfolio
+npm.cmd install
+npm.cmd run dev
+
+in web browser:
+http://localhost:3000/?lang=pl
+
