@@ -127,24 +127,13 @@ export async function submitInquiryAction(formData: FormData) {
     redirect(buildLangHref(`/?contact=missing`, lang));
   }
 
-  const car = await getCarBySlug(carSlug);
-  if (!car) {
-    redirect(buildLangHref("/?contact=missing-car", lang));
-  }
-
-  const delivery = await notifyAdmin({
-    carSlug: car.slug,
-    carName: car.name,
-    portfolioType: car.portfolioType,
-    customerName,
-    email,
-    phone,
-    message,
-  });
-
-  let inquirySaved = false;
   try {
-    await createInquiry({
+    const car = await getCarBySlug(carSlug);
+    if (!car) {
+      redirect(buildLangHref("/?contact=missing-car", lang));
+    }
+
+    const delivery = await notifyAdmin({
       carSlug: car.slug,
       carName: car.name,
       portfolioType: car.portfolioType,
@@ -152,18 +141,34 @@ export async function submitInquiryAction(formData: FormData) {
       email,
       phone,
       message,
-      delivery,
     });
-    inquirySaved = true;
-    revalidatePath("/admin");
+
+    let inquirySaved = false;
+    try {
+      await createInquiry({
+        carSlug: car.slug,
+        carName: car.name,
+        portfolioType: car.portfolioType,
+        customerName,
+        email,
+        phone,
+        message,
+        delivery,
+      });
+      inquirySaved = true;
+      revalidatePath("/admin");
+    } catch (error) {
+      console.error("Failed to save inquiry to store.", error);
+    }
+
+    const delivered = delivery.email === "sent" || delivery.whatsapp === "sent";
+    const status = delivered ? "sent" : inquirySaved ? "saved" : "failed";
+
+    redirect(`/oferta/${car.slug}?contact=${status}&lang=${lang}#contact-form`);
   } catch (error) {
-    console.error("Failed to save inquiry to store.", error);
+    console.error("Inquiry submission failed.", error);
+    redirect(`/oferta/${carSlug}?contact=failed&lang=${lang}#contact-form`);
   }
-
-  const delivered = delivery.email === "sent" || delivery.whatsapp === "sent";
-  const status = delivered ? "sent" : inquirySaved ? "saved" : "missing";
-
-  redirect(`/oferta/${car.slug}?contact=${status}&lang=${lang}#contact-form`);
 }
 
 export async function updateCarAction(formData: FormData) {

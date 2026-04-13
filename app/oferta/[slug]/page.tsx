@@ -60,6 +60,8 @@ export default async function CarDetailsPage({
       ? copy.contactSent
       : query.contact === "saved"
         ? copy.contactSaved
+        : query.contact === "failed"
+          ? copy.contactFailed
         : query.contact === "missing"
           ? copy.contactMissing
           : null;

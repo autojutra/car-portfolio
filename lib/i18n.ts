@@ -151,6 +151,8 @@ export function text(lang: Lang) {
         "Thank you. Your message has been sent and we will contact you shortly.",
       contactSaved:
         "Thank you. Your message has been received and we will contact you shortly.",
+      contactFailed:
+        "We could not send your message right now. Please try again in a moment or contact us directly.",
       contactMissing: "Please complete all required contact fields.",
       hiddenLogin: "Login",
     };
@@ -297,6 +299,8 @@ export function text(lang: Lang) {
       "Dziękujemy. Twoja wiadomość została wysłana, skontaktujemy się z Tobą wkrótce.",
     contactSaved:
       "Dziękujemy. Twoja wiadomość została przyjęta, skontaktujemy się z Tobą wkrótce.",
+    contactFailed:
+      "Nie udało się teraz wysłać wiadomości. Spróbuj ponownie za chwilę albo skontaktuj się z nami bezpośrednio.",
     contactMissing: "Uzupełnij wszystkie wymagane pola kontaktowe.",
     hiddenLogin: "Login",
   };
