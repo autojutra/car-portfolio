@@ -1,6 +1,7 @@
 import { fixedInquiryEmail, getSiteSettings, type InquiryRecord } from "@/lib/store";
 
 type DeliveryStatus = InquiryRecord["delivery"];
+const providerRequestTimeoutMs = 12000;
 
 export async function getNotificationStatus() {
   const settings = await getSiteSettings();
@@ -31,6 +32,23 @@ export async function notifyAdmin(
   return { email, whatsapp };
 }
 
+async function fetchWithTimeout(
+  input: Parameters<typeof fetch>[0],
+  init?: Parameters<typeof fetch>[1],
+) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), providerRequestTimeoutMs);
+
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "delivery">) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_EMAIL_FROM;
@@ -45,7 +63,7 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
     return "not configured";
   }
 
-  const response = await fetch("https://api.resend.com/emails", {
+  const response = await fetchWithTimeout("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -124,7 +142,7 @@ async function sendWhatsapp(
     ].join("\n"),
   });
 
-  const response = await fetch(
+  const response = await fetchWithTimeout(
     `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`,
     {
       method: "POST",
