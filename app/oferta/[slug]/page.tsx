@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CarGallery } from "@/app/car-gallery";
-import { ContactFeedbackNotice } from "@/app/contact-feedback-notice";
+import { ContactFeedbackModal } from "@/app/contact-feedback-modal";
 import { AdminSubmitButton } from "@/app/admin-submit-button";
 import { submitInquiryAction } from "@/app/actions";
 import { buildLangHref, getLang, text } from "@/lib/i18n";
@@ -66,9 +66,25 @@ export default async function CarDetailsPage({
         : query.contact === "missing"
           ? copy.contactMissing
           : null;
+  const contactFeedbackTitle =
+    query.contact === "failed"
+      ? lang === "pl"
+        ? "Nie udalo sie wyslac"
+        : "Sending failed"
+      : lang === "pl"
+        ? "Wiadomosc wyslana"
+        : "Message sent";
 
   return (
     <main className="relative min-h-screen bg-black px-4 py-6 text-white sm:px-6 sm:py-8 lg:px-12 lg:py-10">
+      {contactFeedback ? (
+        <ContactFeedbackModal
+          title={contactFeedbackTitle}
+          message={contactFeedback}
+          buttonLabel="OK"
+        />
+      ) : null}
+
       <Link
         href={homeHref}
         aria-label={lang === "pl" ? "Powrot na strone glowna" : "Back to homepage"}
@@ -112,13 +128,6 @@ export default async function CarDetailsPage({
             </div>
           </div>
         </header>
-
-        {contactFeedback ? (
-          <ContactFeedbackNotice
-            message={contactFeedback}
-            className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200"
-          />
-        ) : null}
 
         <section className="grid gap-6">
           <div className="rounded-[1.5rem] border border-white/10 bg-zinc-950/90 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.45)] sm:p-6">
@@ -168,14 +177,6 @@ export default async function CarDetailsPage({
               <h2 className="text-2xl font-semibold tracking-tight">{copy.sendRequest}</h2>
               <p className="text-sm leading-6 text-zinc-400">{copy.contactFormBody}</p>
             </div>
-
-            {contactFeedback ? (
-              <ContactFeedbackNotice
-                message={contactFeedback}
-                className="mt-5 rounded-[1.25rem] border border-emerald-400/20 bg-emerald-500/10 px-4 py-3 text-sm leading-6 text-emerald-100"
-              />
-            ) : null}
-
             <form action={submitInquiryAction} className="mt-6 space-y-4">
               <input type="hidden" name="lang" value={lang} />
               <input type="hidden" name="carSlug" value={car.slug} />

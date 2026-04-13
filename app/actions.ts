@@ -143,10 +143,6 @@ export async function submitInquiryAction(formData: FormData) {
       phone,
       message,
     });
-    console.info("Inquiry delivery status.", {
-      carSlug: car.slug,
-      delivery,
-    });
 
     let inquirySaved = false;
     try {

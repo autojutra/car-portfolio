@@ -25,14 +25,8 @@ export async function notifyAdmin(
   inquiry: Omit<InquiryRecord, "id" | "createdAt" | "delivery">,
 ): Promise<DeliveryStatus> {
   const [email, whatsapp] = await Promise.all([
-    sendEmail(inquiry).catch((error) => {
-      console.error("Resend email delivery threw an exception.", error);
-      return "failed";
-    }),
-    sendWhatsapp(inquiry).catch((error) => {
-      console.error("Twilio WhatsApp delivery threw an exception.", error);
-      return "failed";
-    }),
+    sendEmail(inquiry).catch(() => "failed"),
+    sendWhatsapp(inquiry).catch(() => "failed"),
   ]);
 
   return { email, whatsapp };
@@ -61,11 +55,6 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
   const to = fixedInquiryEmail;
 
   if (!apiKey || !from || !to) {
-    console.error("Resend email delivery skipped: missing configuration.", {
-      hasApiKey: Boolean(apiKey),
-      hasFrom: Boolean(from),
-      hasTo: Boolean(to),
-    });
     return "not configured";
   }
 
@@ -100,14 +89,6 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
     return "sent";
   }
 
-  const errorBody = await response.text().catch(() => "");
-  console.error("Resend email delivery failed.", {
-    status: response.status,
-    body: errorBody,
-    from,
-    to,
-  });
-
   return `failed (${response.status})`;
 }
 
@@ -121,12 +102,6 @@ async function sendWhatsapp(
   const to = settings.publicWhatsapp;
 
   if (!accountSid || !authToken || !from || !to) {
-    console.error("Twilio WhatsApp delivery skipped: missing configuration.", {
-      hasAccountSid: Boolean(accountSid),
-      hasAuthToken: Boolean(authToken),
-      hasFrom: Boolean(from),
-      hasTo: Boolean(to),
-    });
     return "not configured";
   }
 
@@ -163,14 +138,6 @@ async function sendWhatsapp(
   if (response.ok) {
     return "sent";
   }
-
-  const errorBody = await response.text().catch(() => "");
-  console.error("Twilio WhatsApp delivery failed.", {
-    status: response.status,
-    body: errorBody,
-    from,
-    to,
-  });
 
   return `failed (${response.status})`;
 }
