@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CarGallery } from "@/app/car-gallery";
+import { ContactFeedbackNotice } from "@/app/contact-feedback-notice";
 import { AdminSubmitButton } from "@/app/admin-submit-button";
 import { submitInquiryAction } from "@/app/actions";
 import { buildLangHref, getLang, text } from "@/lib/i18n";
@@ -113,9 +114,10 @@ export default async function CarDetailsPage({
         </header>
 
         {contactFeedback ? (
-          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200">
-            {contactFeedback}
-          </div>
+          <ContactFeedbackNotice
+            message={contactFeedback}
+            className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200"
+          />
         ) : null}
 
         <section className="grid gap-6">
@@ -168,9 +170,10 @@ export default async function CarDetailsPage({
             </div>
 
             {contactFeedback ? (
-              <div className="mt-5 rounded-[1.25rem] border border-emerald-400/20 bg-emerald-500/10 px-4 py-3 text-sm leading-6 text-emerald-100">
-                {contactFeedback}
-              </div>
+              <ContactFeedbackNotice
+                message={contactFeedback}
+                className="mt-5 rounded-[1.25rem] border border-emerald-400/20 bg-emerald-500/10 px-4 py-3 text-sm leading-6 text-emerald-100"
+              />
             ) : null}
 
             <form action={submitInquiryAction} className="mt-6 space-y-4">
