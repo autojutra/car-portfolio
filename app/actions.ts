@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { redirect } from "next/navigation";
 import {
   clearAdminSession,
@@ -166,6 +167,10 @@ export async function submitInquiryAction(formData: FormData) {
 
     redirect(`/oferta/${car.slug}?contact=${status}&lang=${lang}#contact-form`);
   } catch (error) {
+    if (isRedirectError(error)) {
+      throw error;
+    }
+
     console.error("Inquiry submission failed.", error);
     redirect(`/oferta/${carSlug}?contact=failed&lang=${lang}#contact-form`);
   }
