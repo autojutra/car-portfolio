@@ -25,8 +25,14 @@ export async function notifyAdmin(
   inquiry: Omit<InquiryRecord, "id" | "createdAt" | "delivery">,
 ): Promise<DeliveryStatus> {
   const [email, whatsapp] = await Promise.all([
-    sendEmail(inquiry).catch(() => "failed"),
-    sendWhatsapp(inquiry).catch(() => "failed"),
+    sendEmail(inquiry).catch((error) => {
+      console.error("Resend email delivery threw an exception.", error);
+      return "failed";
+    }),
+    sendWhatsapp(inquiry).catch((error) => {
+      console.error("Twilio WhatsApp delivery threw an exception.", error);
+      return "failed";
+    }),
   ]);
 
   return { email, whatsapp };
