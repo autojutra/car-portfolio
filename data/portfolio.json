@@ -297,9 +297,40 @@
       "mileage": ""
     }
   ],
-  "inquiries": [],
+  "inquiries": [
+    {
+      "id": "35dec7a5-2a2d-4c70-b954-8a06c6728b1f",
+      "createdAt": "2026-04-13T18:34:50.007Z",
+      "carSlug": "adfvada",
+      "carName": "esfvsdv",
+      "portfolioType": "available",
+      "customerName": "Maciej Hu",
+      "email": "kijhbsdfvkugja@gmail.com",
+      "phone": "+486075018888",
+      "message": "Test",
+      "delivery": {
+        "email": "sent",
+        "whatsapp": "not configured"
+      }
+    },
+    {
+      "id": "285399fe-4757-4b7f-9412-22f1f7694df4",
+      "createdAt": "2026-04-13T18:30:03.265Z",
+      "carSlug": "adfvada",
+      "carName": "esfvsdv",
+      "portfolioType": "available",
+      "customerName": "Maciej Hu",
+      "email": "kijhbsdfvkugja@gmail.com",
+      "phone": "+486075018888",
+      "message": "Test",
+      "delivery": {
+        "email": "sent",
+        "whatsapp": "not configured"
+      }
+    }
+  ],
   "settings": {
-    "publicEmail": "huszcza.maciej@gmail.com",
+    "publicEmail": "kontakt@autojutra.pl",
     "publicPhone": "+48 500 000 000",
     "publicWhatsapp": "+48 530 188 10"
   }
