@@ -37,6 +37,11 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
   const to = fixedInquiryEmail;
 
   if (!apiKey || !from || !to) {
+    console.error("Resend email delivery skipped: missing configuration.", {
+      hasApiKey: Boolean(apiKey),
+      hasFrom: Boolean(from),
+      hasTo: Boolean(to),
+    });
     return "not configured";
   }
 
@@ -92,6 +97,12 @@ async function sendWhatsapp(
   const to = settings.publicWhatsapp;
 
   if (!accountSid || !authToken || !from || !to) {
+    console.error("Twilio WhatsApp delivery skipped: missing configuration.", {
+      hasAccountSid: Boolean(accountSid),
+      hasAuthToken: Boolean(authToken),
+      hasFrom: Boolean(from),
+      hasTo: Boolean(to),
+    });
     return "not configured";
   }
 
