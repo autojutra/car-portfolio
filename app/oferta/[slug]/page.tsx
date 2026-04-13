@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CarGallery } from "@/app/car-gallery";
+import { AdminSubmitButton } from "@/app/admin-submit-button";
 import { submitInquiryAction } from "@/app/actions";
 import { buildLangHref, getLang, text } from "@/lib/i18n";
 import { SiteFooter } from "@/lib/site-footer";
@@ -188,9 +189,11 @@ export default async function CarDetailsPage({
                 />
               </label>
 
-              <button className="w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200">
-                {copy.sendRequest}
-              </button>
+              <AdminSubmitButton
+                idleLabel={copy.sendRequest}
+                pendingLabel={lang === "pl" ? "Wysylanie..." : "Sending..."}
+                fullWidth
+              />
             </form>
           </div>
         </section>
