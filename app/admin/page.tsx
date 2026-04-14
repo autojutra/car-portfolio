@@ -292,6 +292,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                             <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">
                               {new Date(inquiry.createdAt).toLocaleString(
                                 lang === "pl" ? "pl-PL" : "en-US",
+                                { timeZone: "Europe/Warsaw" },
                               )}
                             </p>
                             <span className="inline-flex rounded-full border border-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300 transition group-open:border-white/25 group-open:text-white">
@@ -305,16 +306,16 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                           <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
                             {lang === "pl" ? "Dane klienta" : "Customer details"}
                           </p>
-                          <p className="text-sm text-zinc-300">
+                          <p className="text-sm break-words text-zinc-300">
                             <span className="text-zinc-500">
                               {lang === "pl" ? "Imię i nazwisko:" : "Full name:"}
                             </span>{" "}
                             {inquiry.customerName}
                           </p>
-                          <p className="text-sm text-zinc-300">
+                          <p className="text-sm break-all text-zinc-300">
                             <span className="text-zinc-500">Email:</span> {inquiry.email}
                           </p>
-                          <p className="text-sm text-zinc-300">
+                          <p className="text-sm break-all text-zinc-300">
                             <span className="text-zinc-500">
                               {lang === "pl" ? "Telefon:" : "Phone:"}
                             </span>{" "}
@@ -325,13 +326,13 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                           <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
                             {lang === "pl" ? "Treść zapytania" : "Inquiry message"}
                           </p>
-                          <p className="text-sm text-zinc-300">
+                          <p className="text-sm break-words text-zinc-300">
                             <span className="text-zinc-500">
                               {lang === "pl" ? "Samochód:" : "Car:"}
                             </span>{" "}
                             {inquiry.carName}
                           </p>
-                          <p className="text-sm leading-6 text-zinc-300">
+                          <p className="text-sm leading-6 text-zinc-300 [overflow-wrap:anywhere]">
                             {inquiry.message || copy.noExtraMessage}
                           </p>
                         </div>
