@@ -31,6 +31,12 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   const params = await searchParams;
   const lang = getLang(params.lang);
   const copy = text(lang);
+  const inquiryPanelToggleLabel =
+    lang === "pl" ? "Rozwin liste zapytan" : "Expand inquiry list";
+  const inquiryPanelHint =
+    lang === "pl"
+      ? "Pokazujemy maksymalnie 10 ostatnich zapytan zapisanych w historii."
+      : "We show at most the 10 most recent inquiries saved in history.";
   const summaryFieldLabel =
     lang === "pl"
       ? "Krótki opis - widoczny na stronie głównej"
@@ -224,20 +230,28 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
               </div>
             </section>
 
-            <section className="rounded-[2rem] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.45)] sm:p-8">
-              <div className="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
-                <div className="space-y-2">
-                  <p className="text-sm uppercase tracking-[0.35em] text-zinc-500">
-                    {copy.inquiryInbox}
-                  </p>
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                    {copy.customerRequests}
-                  </h2>
+            <details className="group rounded-[2rem] border border-white/10 bg-zinc-950/90 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.45)] open:border-white/15 sm:p-8">
+              <summary className="cursor-pointer list-none">
+                <div className="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
+                  <div className="space-y-2">
+                    <p className="text-sm uppercase tracking-[0.35em] text-zinc-500">
+                      {copy.inquiryInbox}
+                    </p>
+                    <h2 className="text-2xl font-semibold tracking-tight">
+                      {copy.customerRequests}
+                    </h2>
+                    <p className="text-sm text-zinc-500">{inquiryPanelHint}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-300">
+                      {inquiries.length}
+                    </span>
+                    <span className="inline-flex rounded-full border border-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-300 transition group-open:border-white/25 group-open:text-white">
+                      {inquiryPanelToggleLabel}
+                    </span>
+                  </div>
                 </div>
-                <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-300">
-                  {inquiries.length}
-                </span>
-              </div>
+              </summary>
 
               <div className="mt-6 space-y-4">
                 {inquiries.length === 0 ? (
@@ -330,7 +344,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                   ))
                 )}
               </div>
-            </section>
+            </details>
           </div>
         </section>
 

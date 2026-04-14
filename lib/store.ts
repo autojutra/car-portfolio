@@ -40,6 +40,7 @@ type AppStore = {
 };
 
 const maxCarImages = 10;
+const maxInquiries = 10;
 
 const storeFile = path.join(process.cwd(), "data", "portfolio.json");
 const uploadDir = path.join(process.cwd(), "public", "uploads");
@@ -73,6 +74,9 @@ async function readStore(): Promise<AppStore> {
   return {
     ...store,
     cars: store.cars.map((car) => normalizeCarRecord(car)),
+    inquiries: [...(store.inquiries ?? [])]
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+      .slice(0, maxInquiries),
     settings: {
       ...defaultStore.settings,
       ...store.settings,
@@ -102,7 +106,9 @@ export async function getCarBySlug(slug: string) {
 
 export async function getInquiries() {
   const store = await readStore();
-  return [...store.inquiries].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  return [...store.inquiries]
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+    .slice(0, maxInquiries);
 }
 
 export async function getSiteSettings() {
@@ -239,7 +245,7 @@ export async function createInquiry(input: Omit<InquiryRecord, "id" | "createdAt
     createdAt: new Date().toISOString(),
     ...input,
   };
-  store.inquiries.unshift(inquiry);
+  store.inquiries = [inquiry, ...store.inquiries].slice(0, maxInquiries);
   await writeStore(store);
   return inquiry;
 }
