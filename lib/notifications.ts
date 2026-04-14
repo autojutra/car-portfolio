@@ -53,6 +53,7 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_EMAIL_FROM;
   const to = fixedInquiryEmail;
+  const sender = from ? `Autojutra <${from}>` : from;
 
   if (!apiKey || !from || !to) {
     return "not configured";
@@ -65,7 +66,7 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from,
+      from: sender,
       to,
       reply_to: inquiry.email,
       subject: `Nowe zapytanie: ${inquiry.carName}`,
