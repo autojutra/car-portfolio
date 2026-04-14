@@ -243,8 +243,12 @@ export function AdminImagePicker({
       return [...existingAsItems, ...queuedAsItems];
     }
 
-    const selectedQueuedItem = queuedAsItems.find((item) => item.id === selectedPreview.id);
-    const remainingQueuedItems = queuedAsItems.filter((item) => item.id !== selectedPreview.id);
+    const selectedQueuedItem = queuedAsItems.find(
+      (item) => item.kind === "queued" && item.id === selectedPreview.id,
+    );
+    const remainingQueuedItems = queuedAsItems.filter(
+      (item) => item.kind !== "queued" || item.id !== selectedPreview.id,
+    );
 
     return selectedQueuedItem
       ? [selectedQueuedItem, ...existingAsItems, ...remainingQueuedItems]
