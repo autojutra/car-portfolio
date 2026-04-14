@@ -142,8 +142,19 @@ function buildInquiryEmailHtml(
   const portfolioLabel = escapeHtml(getPortfolioLabel(inquiry.portfolioType));
   const customerName = escapeHtml(inquiry.customerName);
   const carName = escapeHtml(inquiry.carName);
-  const email = escapeHtml(inquiry.email);
-  const phone = escapeHtml(inquiry.phone);
+  const replySubject = encodeURIComponent(`Re: ${inquiry.carName} - Autojutra`);
+  const replyBody = encodeURIComponent(
+    [
+      `Dzien dobry ${inquiry.customerName},`,
+      "",
+      "dziekujemy za zapytanie dotyczace samochodu.",
+      "",
+      "Pozdrawiamy,",
+      "Autojutra",
+    ].join("\n"),
+  );
+  const emailReplyHref = `mailto:${encodeURIComponent(inquiry.email)}?subject=${replySubject}&body=${replyBody}`;
+  const phoneHref = `tel:${normalizePhoneHref(inquiry.phone)}`;
 
   return `
     <div style="margin:0;padding:20px 10px;background:#f3f4f6;font-family:Arial,Helvetica,sans-serif;color:#111827;">
@@ -169,8 +180,8 @@ function buildInquiryEmailHtml(
           <div style="margin-top:18px;padding:20px;border:1px solid #dbe1e8;border-radius:22px;background:#f8fafc;">
             <div style="font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:#71717a;">Szybka akcja</div>
             <div style="margin-top:16px;">
-              <a href="mailto:${email}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#111111;color:#ffffff;text-decoration:none;font-size:18px;font-weight:700;">Odpowiedz mailem</a>
-              <a href="tel:${phone}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#ffffff;color:#111111;text-decoration:none;font-size:18px;font-weight:700;border:1px solid #d4d4d8;">Zadzwon</a>
+              <a href="${emailReplyHref}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#111111;color:#ffffff;text-decoration:none;font-size:18px;font-weight:700;">Odpowiedz mailem</a>
+              <a href="${phoneHref}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#ffffff;color:#111111;text-decoration:none;font-size:18px;font-weight:700;border:1px solid #d4d4d8;">Zadzwon</a>
             </div>
           </div>
 
@@ -228,4 +239,9 @@ function escapeHtml(value: string) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function normalizePhoneHref(value: string) {
+  const normalized = value.replace(/[^\d+]/g, "");
+  return normalized || value;
 }
