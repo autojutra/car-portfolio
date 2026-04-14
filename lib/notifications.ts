@@ -53,7 +53,7 @@ async function sendEmail(inquiry: Omit<InquiryRecord, "id" | "createdAt" | "deli
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.NOTIFY_EMAIL_FROM;
   const to = fixedInquiryEmail;
-  const sender = from ? `Autojutra <${from}>` : from;
+  const sender = from ? `Nowe zapytania Autojutra <${from}>` : from;
 
   if (!apiKey || !from || !to) {
     return "not configured";
@@ -126,47 +126,63 @@ function buildInquiryEmailText(
   return [
     "Nowe zapytanie ze strony autojutra.pl",
     "",
-    `Samochód: ${inquiry.carName}`,
+    `Samochod: ${inquiry.carName}`,
     `Portfolio: ${getPortfolioLabel(inquiry.portfolioType)}`,
-    `Imię i nazwisko: ${inquiry.customerName}`,
+    `Imie i nazwisko: ${inquiry.customerName}`,
     `E-mail: ${inquiry.email}`,
     `Telefon: ${inquiry.phone}`,
-    `Wiadomość: ${inquiry.message || "Brak dodatkowej wiadomości"}`,
+    `Wiadomosc: ${inquiry.message || "Brak dodatkowej wiadomosci"}`,
   ].join("\n");
 }
 
 function buildInquiryEmailHtml(
   inquiry: Omit<InquiryRecord, "id" | "createdAt" | "delivery">,
 ) {
-  const message = inquiry.message?.trim() || "Brak dodatkowej wiadomości";
+  const message = inquiry.message?.trim() || "Brak dodatkowej wiadomosci";
+  const portfolioLabel = escapeHtml(getPortfolioLabel(inquiry.portfolioType));
+  const customerName = escapeHtml(inquiry.customerName);
+  const carName = escapeHtml(inquiry.carName);
+  const email = escapeHtml(inquiry.email);
+  const phone = escapeHtml(inquiry.phone);
 
   return `
-    <div style="margin:0;padding:32px 16px;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif;color:#111827;">
-      <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:24px;overflow:hidden;">
-        <div style="padding:28px 28px 20px;background:linear-gradient(180deg,#171717 0%,#0a0a0a 100%);color:#ffffff;">
-          <div style="font-size:12px;letter-spacing:0.35em;text-transform:uppercase;color:#a1a1aa;">autojutra.pl</div>
-          <h1 style="margin:16px 0 0;font-size:28px;line-height:1.2;font-weight:700;">Nowe zapytanie o samochód</h1>
-          <p style="margin:12px 0 0;font-size:15px;line-height:1.7;color:#d4d4d8;">
-            Klient wysłał nowe zapytanie z formularza na stronie.
+    <div style="margin:0;padding:20px 10px;background:#f3f4f6;font-family:Arial,Helvetica,sans-serif;color:#111827;">
+      <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+        Nowe zapytanie o ${carName}. Klient: ${customerName}.
+      </div>
+      <div style="max-width:720px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:28px;overflow:hidden;">
+        <div style="padding:30px 24px 24px;background:linear-gradient(180deg,#171717 0%,#050505 100%);color:#ffffff;">
+          <div style="font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:#c4c4c5;">autojutra.pl</div>
+          <h1 style="margin:18px 0 0;font-size:34px;line-height:1.15;font-weight:800;">Nowe zapytanie o samochod</h1>
+          <p style="margin:14px 0 0;font-size:18px;line-height:1.7;color:#e4e4e7;">
+            Klient wyslal nowe zapytanie z formularza na stronie.
           </p>
         </div>
 
-        <div style="padding:24px 28px 28px;">
-          <div style="padding:18px 20px;border:1px solid #e5e7eb;border-radius:18px;background:#fafafa;">
-            <div style="font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#71717a;">Samochód</div>
-            <div style="margin-top:10px;font-size:24px;line-height:1.3;font-weight:700;color:#111827;">${escapeHtml(inquiry.carName)}</div>
-            <div style="margin-top:8px;font-size:14px;line-height:1.6;color:#52525b;">${escapeHtml(getPortfolioLabel(inquiry.portfolioType))}</div>
+        <div style="padding:24px;">
+          <div style="padding:22px;border:1px solid #e5e7eb;border-radius:22px;background:#fafafa;">
+            <div style="font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:#71717a;">Samochod</div>
+            <div style="margin-top:12px;font-size:36px;line-height:1.12;font-weight:800;color:#111827;">${carName}</div>
+            <div style="margin-top:10px;font-size:18px;line-height:1.6;color:#52525b;">${portfolioLabel}</div>
           </div>
 
-          <div style="margin-top:18px;padding:18px 20px;border:1px solid #e5e7eb;border-radius:18px;background:#ffffff;">
-            ${renderInfoRow("Imię i nazwisko", inquiry.customerName)}
+          <div style="margin-top:18px;padding:20px;border:1px solid #dbe1e8;border-radius:22px;background:#f8fafc;">
+            <div style="font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:#71717a;">Szybka akcja</div>
+            <div style="margin-top:16px;">
+              <a href="mailto:${email}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#111111;color:#ffffff;text-decoration:none;font-size:18px;font-weight:700;">Odpowiedz mailem</a>
+              <a href="tel:${phone}" style="display:inline-block;margin:0 10px 10px 0;padding:15px 20px;border-radius:999px;background:#ffffff;color:#111111;text-decoration:none;font-size:18px;font-weight:700;border:1px solid #d4d4d8;">Zadzwon</a>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;padding:20px;border:1px solid #e5e7eb;border-radius:22px;background:#ffffff;">
+            ${renderInfoRow("Imie i nazwisko", inquiry.customerName)}
             ${renderInfoRow("E-mail", inquiry.email, "mailto")}
             ${renderInfoRow("Telefon", inquiry.phone, "tel")}
           </div>
 
-          <div style="margin-top:18px;padding:18px 20px;border:1px solid #e5e7eb;border-radius:18px;background:#ffffff;">
-            <div style="font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#71717a;">Wiadomość</div>
-            <div style="margin-top:12px;font-size:15px;line-height:1.8;color:#18181b;white-space:pre-wrap;">${escapeHtml(message)}</div>
+          <div style="margin-top:18px;padding:20px;border:1px solid #e5e7eb;border-radius:22px;background:#ffffff;">
+            <div style="font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:#71717a;">Wiadomosc</div>
+            <div style="margin-top:14px;font-size:20px;line-height:1.8;color:#18181b;white-space:pre-wrap;">${escapeHtml(message)}</div>
           </div>
         </div>
       </div>
@@ -176,8 +192,8 @@ function buildInquiryEmailHtml(
 
 function getPortfolioLabel(portfolioType: "example" | "available") {
   return portfolioType === "available"
-    ? "Auta dostępne obecnie"
-    : "Przykładowe portfolio importowe";
+    ? "Auta dostepne obecnie"
+    : "Przykladowe portfolio importowe";
 }
 
 function renderInfoRow(
@@ -193,14 +209,14 @@ function renderInfoRow(
         ? `tel:${safeValue}`
         : null;
   const content = href
-    ? `<a href="${href}" style="color:#111827;text-decoration:none;font-weight:600;">${safeValue}</a>`
-    : `<span style="color:#111827;font-weight:600;">${safeValue}</span>`;
-  const borderStyle = "padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid #f1f5f9;";
+    ? `<a href="${href}" style="color:#111827;text-decoration:none;font-weight:700;">${safeValue}</a>`
+    : `<span style="color:#111827;font-weight:700;">${safeValue}</span>`;
+  const borderStyle = "padding:0 0 16px;margin:0 0 16px;border-bottom:1px solid #f1f5f9;";
 
   return `
     <div style="${borderStyle}">
-      <div style="font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#71717a;">${label}</div>
-      <div style="margin-top:8px;font-size:16px;line-height:1.6;">${content}</div>
+      <div style="font-size:14px;letter-spacing:0.24em;text-transform:uppercase;color:#71717a;">${label}</div>
+      <div style="margin-top:10px;font-size:24px;line-height:1.5;">${content}</div>
     </div>
   `;
 }
