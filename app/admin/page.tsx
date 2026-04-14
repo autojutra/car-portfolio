@@ -122,7 +122,11 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
 
           {params.error ? (
             <div className="mt-6 rounded-2xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-              {copy.missingFields}
+              {params.error === "delete-failed"
+                ? lang === "pl"
+                  ? "Nie udalo sie usunac auta. Sprobuj ponownie za chwile."
+                  : "Failed to delete the car. Please try again in a moment."
+                : copy.missingFields}
             </div>
           ) : null}
         </section>

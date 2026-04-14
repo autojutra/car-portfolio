@@ -300,19 +300,28 @@ export async function updateCarAction(formData: FormData) {
 
 export async function deleteCarAction(formData: FormData) {
   const lang = getLang(String(formData.get("lang") ?? ""));
-  if (!(await isAdminAuthenticated())) {
-    redirect(buildLangHref("/admin/login?error=auth", lang));
-  }
+  try {
+    if (!(await isAdminAuthenticated())) {
+      redirect(buildLangHref("/admin/login?error=auth", lang));
+    }
 
-  const id = String(formData.get("id") ?? "").trim();
-  if (!id) {
-    redirect(buildLangHref("/admin?error=missing-fields", lang));
-  }
+    const id = String(formData.get("id") ?? "").trim();
+    if (!id) {
+      redirect(buildLangHref("/admin?error=missing-fields", lang));
+    }
 
-  await deleteCar(id);
-  revalidatePath("/");
-  revalidatePath("/admin");
-  redirect(buildLangHref("/admin?status=car-deleted", lang));
+    await deleteCar(id);
+    revalidatePath("/");
+    revalidatePath("/admin");
+    redirect(buildLangHref(`/admin?status=car-deleted&nonce=${Date.now()}`, lang));
+  } catch (error) {
+    if (isRedirectError(error)) {
+      throw error;
+    }
+
+    console.error("Delete car action failed.", error);
+    redirect(buildLangHref(`/admin?error=delete-failed&nonce=${Date.now()}`, lang));
+  }
 }
 
 export async function updateSiteSettingsAction(formData: FormData) {
