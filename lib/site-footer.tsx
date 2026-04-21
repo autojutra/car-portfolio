@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { buildLangHref, type Lang } from "@/lib/i18n";
+import { getSiteSettings } from "@/lib/store";
 
-export function SiteFooter({ lang }: { lang: Lang }) {
+export async function SiteFooter({ lang }: { lang: Lang }) {
   const isPl = lang === "pl";
+  const settings = await getSiteSettings();
 
   return (
     <footer className="rounded-[1.35rem] border border-white/10 bg-zinc-950/90 p-4 text-zinc-300 shadow-[0_18px_48px_rgba(0,0,0,0.42)] sm:p-6">
@@ -48,6 +50,23 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           </p>
         </section>
       </div>
+
+      <section className="mt-6 rounded-[1rem] border border-white/10 bg-white/[0.03] p-4">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-500">
+          {isPl ? "Kontakt telefoniczny" : "Phone contact"}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-zinc-400">
+          {isPl
+            ? "Jesli wolisz szybki kontakt telefoniczny, zadzwon bezposrednio."
+            : "If you prefer a quick phone conversation, call directly."}
+        </p>
+        <a
+          href={`tel:${settings.publicPhone.replace(/[^\d+]/g, "")}`}
+          className="mt-4 inline-flex rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-base font-semibold text-white transition hover:bg-white/[0.08]"
+        >
+          {settings.publicPhone}
+        </a>
+      </section>
 
       <details className="mt-6 rounded-[1rem] border border-white/10 bg-white/[0.03] p-4">
         <summary className="cursor-pointer list-none text-sm font-semibold text-white">
