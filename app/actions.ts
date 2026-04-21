@@ -330,30 +330,18 @@ export async function updateSiteSettingsAction(formData: FormData) {
     redirect(buildLangHref("/admin/login?error=auth", lang));
   }
 
-  const rawEmail = formData.get("publicEmail");
   const rawPhone = formData.get("publicPhone");
-  const rawWhatsapp = formData.get("publicWhatsapp");
 
   const updates: Record<string, string> = {};
-  if (rawEmail !== null) {
-    updates.publicEmail = "kontakt@autojutra.pl";
-  }
   if (rawPhone !== null) {
     updates.publicPhone = String(rawPhone).trim();
-  }
-  if (rawWhatsapp !== null) {
-    updates.publicWhatsapp = String(rawWhatsapp).trim();
   }
 
   if (Object.keys(updates).length === 0 || Object.values(updates).some((value) => !value)) {
     redirect(buildLangHref("/admin?error=missing-fields", lang));
   }
 
-  await updateSiteSettings(updates as {
-    publicEmail?: string;
-    publicPhone?: string;
-    publicWhatsapp?: string;
-  });
+  await updateSiteSettings(updates as { publicPhone?: string });
 
   revalidatePath("/");
   revalidatePath("/admin");

@@ -94,7 +94,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <InfoCard label={copy.carsInPortfolio} value={String(cars.length)} />
             <InfoCard label={copy.savedInquiries} value={String(inquiries.length)} />
             <FixedEmailCard lang={lang} label={copy.publicEmail} value={fixedInquiryEmail} />
@@ -103,12 +103,6 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
               label={copy.publicPhone}
               name="publicPhone"
               defaultValue={settings.publicPhone}
-            />
-            <DeliveryConfigCard
-              lang={lang}
-              label={copy.publicWhatsapp}
-              name="publicWhatsapp"
-              defaultValue={settings.publicWhatsapp}
             />
           </div>
 
@@ -347,9 +341,6 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
                         <span className="rounded-full border border-white/10 px-3 py-1">
                           Email: {inquiry.delivery.email}
                         </span>
-                        <span className="rounded-full border border-white/10 px-3 py-1">
-                          WhatsApp: {inquiry.delivery.whatsapp}
-                        </span>
                       </div>
                     </details>
                   ))
@@ -393,17 +384,13 @@ function DeliveryConfigCard({
 }: {
   lang: "pl" | "en";
   label: string;
-  name: "publicPhone" | "publicWhatsapp";
+  name: "publicPhone";
   defaultValue: string;
 }) {
   const currentValueLabel =
-    name === "publicPhone"
-      ? lang === "pl"
-        ? "Obecnie ustawiony numer telefonu"
-        : "Currently selected phone number"
-      : lang === "pl"
-        ? "Obecnie ustawiony WhatsApp"
-        : "Currently selected WhatsApp";
+    lang === "pl"
+      ? "Obecnie ustawiony numer telefonu"
+      : "Currently selected phone number";
 
   return (
     <form
