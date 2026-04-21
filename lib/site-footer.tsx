@@ -15,12 +15,12 @@ export async function SiteFooter({ lang }: { lang: Lang }) {
           </h3>
           <p className="text-sm leading-6">
             {isPl
-              ? "Serwis ma charakter informacyjny i prezentuje auta przykładowe oraz dostępne. Treści na stronie nie stanowią oferty w rozumieniu art. 66 § 1 Kodeksu cywilnego, chyba że zostanie to wyraźnie potwierdzone odrębnie."
+              ? "Serwis ma charakter informacyjny i prezentuje auta przykladowe oraz dostepne. Tresci na stronie nie stanowia oferty w rozumieniu art. 66 § 1 Kodeksu cywilnego, chyba ze zostanie to wyraznie potwierdzone odrebnie."
               : "This website is informational in nature and presents example and available vehicles. Content published here does not constitute an offer within the meaning of Article 66 § 1 of the Polish Civil Code unless explicitly confirmed separately."}
           </p>
           <p className="text-sm leading-6">
             {isPl
-              ? "Przetwarzanie danych z formularza kontaktowego, informacje o cookies i obowiązki informacyjne opisaliśmy w osobnych dokumentach poniżej. Przed publikacją uzupełnij te dokumenty o pełne dane firmy i administratora."
+              ? "Przetwarzanie danych z formularza kontaktowego, informacje o cookies i obowiazki informacyjne opisalismy w osobnych dokumentach ponizej. Przed publikacja uzupelnij te dokumenty o pelne dane firmy i administratora."
               : "Contact form data processing, cookie information, and information duties are described in the documents below. Before going live, complete them with the full company and controller details."}
           </p>
         </section>
@@ -34,7 +34,7 @@ export async function SiteFooter({ lang }: { lang: Lang }) {
               href={buildLangHref("/polityka-prywatnosci", lang)}
               className="inline-flex w-fit rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
             >
-              {isPl ? "Polityka prywatności" : "Privacy policy"}
+              {isPl ? "Polityka prywatnosci" : "Privacy policy"}
             </Link>
             <Link
               href={buildLangHref("/polityka-cookies", lang)}
@@ -45,7 +45,7 @@ export async function SiteFooter({ lang }: { lang: Lang }) {
           </div>
           <p className="text-sm leading-6 text-zinc-400">
             {isPl
-              ? "Nazwy marek, modeli i znaki towarowe należą do ich właścicieli. Układ strony i treści autorskie serwisu są zastrzeżone dla właściciela strony."
+              ? "Nazwy marek, modeli i znaki towarowe naleza do ich wlascicieli. Uklad strony i tresci autorskie serwisu sa zastrzezone dla wlasciciela strony."
               : "Brand names, model names, and trademarks belong to their respective owners. The site layout and original website copy are reserved for the site owner."}
           </p>
         </section>
@@ -67,56 +67,6 @@ export async function SiteFooter({ lang }: { lang: Lang }) {
           {settings.publicPhone}
         </a>
       </section>
-
-      <details className="mt-6 rounded-[1rem] border border-white/10 bg-white/[0.03] p-4">
-        <summary className="cursor-pointer list-none text-sm font-semibold text-white">
-          {isPl ? "Źródła zdjęć demonstracyjnych" : "Demonstration photo sources"}
-        </summary>
-        <div className="mt-4 grid gap-2 text-sm text-zinc-400">
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/BYD%20Dolphin%20184102.jpg"
-            className="hover:text-white"
-          >
-            BYD Dolphin
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/BYD%20Atto%203.jpg"
-            className="hover:text-white"
-          >
-            BYD Atto 3
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/MG4%20Electric%20%E2%80%93%20f%2021042025.jpg"
-            className="hover:text-white"
-          >
-            MG4 Electric
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/XPeng%20G6%20(2023)%20DSC%201247.jpg"
-            className="hover:text-white"
-          >
-            XPeng G6
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/NIO%20ET5%20(2024).jpg"
-            className="hover:text-white"
-          >
-            NIO ET5
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/Li%20Auto%20L7%20008.jpg"
-            className="hover:text-white"
-          >
-            Li Auto L7
-          </a>
-          <a
-            href="https://commons.wikimedia.org/wiki/Special:FilePath/XPeng%20G6%20018.jpg"
-            className="hover:text-white"
-          >
-            XPeng G6 available
-          </a>
-        </div>
-      </details>
 
       <div className="mt-6 flex justify-end">
         <Link

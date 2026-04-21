@@ -94,10 +94,16 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <InfoCard label={copy.carsInPortfolio} value={String(cars.length)} />
             <InfoCard label={copy.savedInquiries} value={String(inquiries.length)} />
             <FixedEmailCard lang={lang} label={copy.publicEmail} value={fixedInquiryEmail} />
+            <DeliveryConfigCard
+              lang={lang}
+              label={copy.publicPhone}
+              name="publicPhone"
+              defaultValue={settings.publicPhone}
+            />
             <DeliveryConfigCard
               lang={lang}
               label={copy.publicWhatsapp}
@@ -387,13 +393,17 @@ function DeliveryConfigCard({
 }: {
   lang: "pl" | "en";
   label: string;
-  name: "publicWhatsapp";
+  name: "publicPhone" | "publicWhatsapp";
   defaultValue: string;
 }) {
   const currentValueLabel =
-    lang === "pl"
-      ? "Obecnie ustawiony WhatsApp"
-      : "Currently selected WhatsApp";
+    name === "publicPhone"
+      ? lang === "pl"
+        ? "Obecnie ustawiony numer telefonu"
+        : "Currently selected phone number"
+      : lang === "pl"
+        ? "Obecnie ustawiony WhatsApp"
+        : "Currently selected WhatsApp";
 
   return (
     <form
