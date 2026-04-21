@@ -147,9 +147,13 @@ function buildInquiryEmailHtml(
     [
       `Dzien dobry ${inquiry.customerName},`,
       "",
-      "dziekujemy za zapytanie dotyczace samochodu.",
+      "dziekuje za zapytanie dotyczace samochodu.",
       "",
-      "Pozdrawiamy,",
+      "",
+      "",
+      "",
+      "Pozdrawiam,",
+      "Szymon Banaszek",
       "Autojutra",
     ].join("\n"),
   );
