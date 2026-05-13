@@ -162,7 +162,7 @@ export function text(lang: Lang) {
     brandNote: "Samochody elektryczne sprowadzane z Chin do Polski",
     premiumExperience: "Import EV na zamówienie",
     heroTitle:
-      "Chińskie samochody elektryczne wyszukiwane i sprowadzane indywidualnie na rynek polski.",
+      "Chińskie samochody elektryczne i hybrydowe wyszukiwane oraz sprowadzane indywidualnie na rynek polski.",
     heroBody:
       "autojutra.pl pokazuje przykładowe modele, które możemy znaleźć w Chinach pod zamówienie. Te auta nie są dostępne od ręki. Każde wyszukanie rozpoczyna się po pierwszym kontakcie i analizie potrzeb.",
     browseInventory: "Zobacz portfolio",
